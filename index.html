@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMEYCE - Tecnología Cuántica para el Bienestar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        dark: '#0f172a',
+                        'gray-custom': '#1e293b'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .card-3d {
+            transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+            transition: transform 0.3s ease;
+        }
+        .card-3d:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-gray-900">EMEYCE</div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Producto</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Investigación</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Resultados</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Empresa</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Soporte</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="https://wa.me/5491122529482" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors flex items-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Bienestar y salud integrados en tu vida diaria.
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Tecnología cuántica avanzada que transforma tu bienestar desde el primer día. 
+                        Resultados científicamente comprobados para una vida más saludable.
+                    </p>
+                    <button class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-600 transition-colors">
+                        Comenzar Ahora
+                    </button>
+                    
+                    <!-- Testimonials -->
+                    <div class="mt-12 flex items-center space-x-8">
+                        <div class="flex items-center">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 bg-gray-300 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-gray-400 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-gray-500 rounded-full border-2 border-white"></div>
+                            </div>
+                            <div class="ml-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-sm text-gray-600">4.9/5 de 2,000+ usuarios</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 bg-blue-300 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-blue-400 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                            </div>
+                            <div class="ml-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-sm text-gray-600">5/5 de profesionales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Card -->
+                <div class="relative">
+                    <div class="card-3d bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl p-8 shadow-2xl">
+                        <div class="bg-white rounded-xl p-6">
+                            <img src="hero-image.png" alt="EMEYCE Device" class="w-full h-auto rounded-lg">
+                        </div>
+                        <div class="mt-6 text-white">
+                            <h3 class="text-lg font-semibold mb-2">Tecnología Cuántica EMEYCE</h3>
+                            <p class="text-gray-300 text-sm">Dispositivo de última generación para bienestar integral</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section 1 - Dark -->
+    <section class="bg-gray-900 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">
+                        Bienestar por defecto con tecnología cuántica que protege tu salud las 24 horas.
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Nuestro dispositivo EMEYCE utiliza frecuencias cuánticas específicas para optimizar 
+                        tu campo bioenergético de forma continua, proporcionando protección y mejora 
+                        constante de tu bienestar sin interrupciones.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            Protección energética 24/7
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            Optimización automática del campo bioenergético
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            Sin efectos secundarios
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <div class="bg-gray-800 rounded-2xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold">Protección Cuántica</h3>
+                                <p class="text-gray-400 text-sm">Activa las 24 horas</p>
+                            </div>
+                        </div>
+                        <img src="investigaciones.png" alt="Quantum Protection" class="w-full rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section 2 - Light -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-lock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-gray-900 font-semibold">Seguro por diseño</h3>
+                                <p class="text-gray-600 text-sm">Tecnología probada científicamente</p>
+                            </div>
+                        </div>
+                        <img src="resultados.png" alt="Scientific Results" class="w-full rounded-lg">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Seguro por diseño con tecnología cuántica y protección avanzada de datos bioenergéticos.
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Cada dispositivo EMEYCE está diseñado con los más altos estándares de seguridad. 
+                        Utilizamos tecnología cuántica certificada que ha sido probada en múltiples 
+                        estudios científicos para garantizar resultados seguros y efectivos.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Certificación científica internacional
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Más de 10,000 horas de pruebas
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Cero contraindicaciones reportadas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Control Section -->
+    <section class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Más Control, Mayor Tranquilidad
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        El bienestar ofrece una variedad de opciones de uso y configuraciones 
+                        para adaptarse a tus necesidades específicas.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <h3 class="font-semibold text-gray-900 mb-2">
+                                Desbloquea Posibilidades con Opciones de Uso Flexibles
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Usa el dispositivo EMEYCE de múltiples formas: sobre el cuerpo, 
+                                para ionizar agua, en terapias locales o durante el sueño.
+                            </p>
+                            <img src="modo-uso.png" alt="Usage Options" class="w-full mt-4 rounded-lg">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-gray-900 mb-2">
+                            Toma Control con Límites de Exposición
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Configura límites personalizados de exposición y recibe notificaciones 
+                            cuando alcances los niveles óptimos de bienestar.
+                        </p>
+                        <div class="bg-gray-100 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium">Exposición Diaria</span>
+                                <span class="text-sm text-gray-500">18/24 horas</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-gray-900 mb-2">
+                            Siéntete Seguro con Dispositivos que Puedes Pausar o Detener en Cualquier Momento
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Tienes control total sobre tu dispositivo EMEYCE. Puedes pausar, 
+                            ajustar o detener el funcionamiento cuando lo necesites.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-gray-900 mb-2">
+                            Protege tu Privacidad por Defecto
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Tu información bioenergética permanece completamente privada. 
+                            No compartimos ni vendemos tus datos personales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                Protegemos el bienestar de más de 150,000 usuarios en el mundo, y hemos procesado más de $3B usando seguridad de nivel bancario y encriptación.
+            </h2>
+            <p class="text-gray-600 text-lg mb-16 max-w-3xl mx-auto">
+                Únete a miles de personas que ya han transformado su bienestar con tecnología cuántica EMEYCE.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">150,000+</div>
+                    <p class="text-gray-600">Usuarios Activos</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">$3B+</div>
+                    <p class="text-gray-600">En Valor de Bienestar Procesado</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">99.9%</div>
+                    <p class="text-gray-600">Tiempo de Actividad</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face&auto=format" 
+                         alt="María González" 
+                         class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                    <blockquote class="text-gray-600 mb-4">
+                        "Honestamente no esperaba mucho al principio, pero después de 3 semanas usando EMEYCE 
+                        mi energía cambió completamente. Duermo mejor y me despierto más descansada. 
+                        Mi familia también notó el cambio."
+                    </blockquote>
+                    <div class="font-semibold text-gray-900">María González</div>
+                    <div class="text-sm text-gray-500">Madre de familia, Buenos Aires</div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&h=80&fit=crop&crop=face&auto=format" 
+                         alt="Dr. Carlos Ruiz" 
+                         class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                    <blockquote class="text-gray-600 mb-4">
+                        "Soy escéptico por naturaleza, pero los resultados que veo en consulta son innegables. 
+                        Pacientes con estrés crónico muestran mejoras medibles en sus análisis. 
+                        Ahora lo recomiendo regularmente."
+                    </blockquote>
+                    <div class="font-semibold text-gray-900">Dr. Carlos Ruiz</div>
+                    <div class="text-sm text-gray-500">Médico Clínico, Córdoba</div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face&auto=format" 
+                         alt="Ana Martín" 
+                         class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                    <blockquote class="text-gray-600 mb-4">
+                        "Trabajo 12 horas diarias y siempre terminaba agotada. Desde que uso EMEYCE 
+                        mantengo mi energía todo el día. Es como si hubiera encontrado mi equilibrio natural. 
+                        Vale cada peso invertido."
+                    </blockquote>
+                    <div class="font-semibold text-gray-900">Ana Martín</div>
+                    <div class="text-sm text-gray-500">Empresaria, Rosario</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Obtén aún más cuando te registres.
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                    <h3 class="font-semibold mb-2">Categoría Ilimitada</h3>
+                    <p class="text-sm opacity-90">Usa tu dispositivo EMEYCE en cualquier situación y momento del día.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                    <h3 class="font-semibold mb-2">Soporte Prioritario</h3>
+                    <p class="text-sm opacity-90">Acceso directo a nuestro equipo de especialistas en bienestar cuántico.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                    <h3 class="font-semibold mb-2">Actualizaciones Gratuitas</h3>
+                    <p class="text-sm opacity-90">Recibe las últimas mejoras y nuevas funcionalidades sin costo adicional.</p>
+                </div>
+            </div>
+            
+            <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                Crear Cuenta Gratuita
+            </button>
+        </div>
+    </section>
+
+    <!-- Ready Section -->
+    <section class="bg-gray-900 py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                ¿Listo para Abrir una Cuenta de Bienestar?
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+                Únete a más de 150,000 usuarios que confían en EMEYCE para su bienestar diario.
+            </p>
+            <button class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-600 transition-colors">
+                Comenzar Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">
+                Preguntas Frecuentes
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Qué es exactamente la tecnología cuántica EMEYCE?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        EMEYCE utiliza tecnología cuántica avanzada que trabaja a nivel molecular para optimizar tu campo bioenergético. Nuestro dispositivo emite frecuencias específicas que han sido científicamente probadas para mejorar el bienestar general, reducir el estrés oxidativo y aumentar los niveles de energía natural del cuerpo.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Hay alguna contraindicación o efecto secundario?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        No existen contraindicaciones conocidas para el uso de la tecnología EMEYCE. Nuestros dispositivos han sido probados extensivamente y son completamente seguros para todas las edades, incluyendo niños, embarazadas y personas con marcapasos. La tecnología cuántica utilizada es no invasiva y trabaja en armonía con los procesos naturales del cuerpo.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Cuánto tiempo tarda en verse resultados?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        Los resultados pueden variar según la persona, pero muchos usuarios reportan mejoras en sus niveles de energía y bienestar general dentro de las primeras 24-48 horas de uso. Para obtener beneficios óptimos y duraderos, recomendamos el uso continuo durante al menos 21 días, que es el tiempo que necesita el cuerpo para adaptarse completamente a las nuevas frecuencias.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Cómo se usa el dispositivo EMEYCE?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        El dispositivo EMEYCE es extremadamente fácil de usar. Simplemente manténgalo cerca de su cuerpo (a menos de 50cm): puede llevarlo en el bolsillo, usarlo mientras duerme bajo la almohada, colocarlo en su escritorio de trabajo, o utilizarlo para ionizar agua (mínimo 7 minutos). Se recomienda el uso las 24 horas del día para obtener máximos beneficios. No requiere carga ni mantenimiento especial.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Qué garantía ofrecen?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        Ofrecemos una garantía de satisfacción de 30 días con devolución del 100% del dinero si no está completamente satisfecho con los resultados. Además, todos nuestros dispositivos incluyen una garantía de fabricación de 2 años contra defectos de fábrica. También brindamos soporte técnico gratuito de por vida y actualizaciones sin costo adicional.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 faq-button">
+                        <span class="font-semibold text-gray-900">¿Cuál es el precio del dispositivo EMEYCE?</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                        El precio del dispositivo EMEYCE varía según el modelo y las características específicas que necesite. Ofrecemos diferentes opciones desde $299 USD hasta $899 USD. Contáctenos a través de WhatsApp para obtener información detallada sobre precios actuales, promociones vigentes y opciones de financiamiento. Tenemos planes de pago en cuotas sin interés para hacer la tecnología accesible para todos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white font-semibold mb-4">EMEYCE</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Tecnología Cuántica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Investigaciones</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Resultados</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Soporte</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Centro de Ayuda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+                        <li><a href="https://wa.me/5491122529482" class="hover:text-white transition-colors">WhatsApp</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Garantía</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Contacto</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fab fa-whatsapp mr-2"></i> +54 9 11 2252-9482</p>
+                        <p><i class="fas fa-envelope mr-2"></i> info@emeyce.com</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <div class="text-2xl font-bold text-white mb-2">EMEYCE</div>
+                <div class="text-gray-400 text-sm">
+                    © 2025 EMEYCE. Tecnología Cuántica para el Bienestar.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5491122529482" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-xl hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50 flex items-center gap-3">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="font-semibold text-lg">Contacto</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
