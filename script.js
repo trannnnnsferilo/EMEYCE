@@ -1,127 +1,127 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+// Optimized corporate JavaScript - Performance focused
+(function() {
+    'use strict';
+
+    // Performance optimizations
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
             }
-        });
-    });
-
-    // FAQ Accordion
-    const faqButtons = document.querySelectorAll('.faq-button');
-    faqButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('i');
-            
-            if (content && !content.classList.contains('hidden')) {
-                content.classList.add('hidden');
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
-            } else if (content) {
-                // Close all other FAQ items
-                faqButtons.forEach(otherButton => {
-                    const otherContent = otherButton.nextElementSibling;
-                    const otherIcon = otherButton.querySelector('i');
-                    if (otherContent && otherContent !== content) {
-                        otherContent.classList.add('hidden');
-                        otherIcon.classList.remove('fa-chevron-up');
-                        otherIcon.classList.add('fa-chevron-down');
-                    }
-                });
-                
-                content.classList.remove('hidden');
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            }
-        });
-    });
-
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        }
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    // DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Smooth scrolling for navigation
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Optimized Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Corporate card hover effects (optimized)
+        const cards = document.querySelectorAll('.card-corporate');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.willChange = 'transform';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.willChange = 'auto';
+            });
+        });
+
+        // Optimized navbar scroll effect
+        const navbar = document.querySelector('nav');
+        let ticking = false;
+
+        const updateNavbar = throttle(() => {
+            const scrollTop = window.pageYOffset;
+            
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-        });
-    }, observerOptions);
+        }, 16); // ~60fps
 
-    // Observe sections for animation
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
+        window.addEventListener('scroll', updateNavbar, { passive: true });
 
-    // 3D Card hover effect
-    const card3D = document.querySelector('.card-3d');
-    if (card3D) {
-        card3D.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        // Button hover effects (corporate)
+        const buttons = document.querySelectorAll('.btn-corporate, .btn-corporate-outline');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.willChange = 'transform';
+            });
             
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            button.addEventListener('mouseleave', () => {
+                button.style.willChange = 'auto';
+            });
         });
-        
-        card3D.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(10deg) rotateY(-10deg)';
-        });
-    }
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('nav');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
+        // Preload critical images
+        const criticalImages = ['LOGO.png', 'newmecard.jpeg', 'eyemask.jpeg', 'insole.jpeg', 'newmepets.jpeg', 'numenowkids.jpg'];
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Optimize video loading
+        const video = document.querySelector('video');
+        if (video) {
+            video.addEventListener('loadedmetadata', () => {
+                console.log('Video metadata loaded');
+            });
         }
-        
-        lastScrollTop = scrollTop;
+
+        console.log('✅ EMEYCE Corporate - Optimized website loaded');
     });
 
-    // Button hover effects
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    // CSS for navbar scrolled state
+    const style = document.createElement('style');
+    style.textContent = `
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    `;
+    document.head.appendChild(style);
 
-    console.log('EMEYCE Privacy-style website loaded successfully!');
-});
+})();
