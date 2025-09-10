@@ -96,7 +96,7 @@
         });
 
         // Preload critical images
-        const criticalImages = ['LOGO.png', 'newmecard.jpeg', 'eyemask.jpeg', 'insole.jpeg', 'newmepets.jpeg', 'numenowkids.jpg'];
+        const criticalImages = ['LOGO.png', 'PRODUCTOS_CARD.jpeg', 'PRODUCTOS_EYEMASK.jpeg', 'PRODUCTOS_PETS.jpeg', 'KIDS_PRODUCTOS.jpeg'];
         criticalImages.forEach(src => {
             const img = new Image();
             img.src = src;
